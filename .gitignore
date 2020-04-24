@@ -1,0 +1,6 @@
+# Ignore folders
+Hardware/
+Recording/
+
+# Ignore backups
+*backup*

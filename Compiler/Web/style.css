@@ -1,0 +1,154 @@
+body {
+  text-align: center;
+}
+
+.codeContainer {
+  text-align: left;
+  min-width: 70%;
+  min-height: 40px;
+  margin-left: 10px;
+  font-size: 20px;
+}
+
+.blockContainer {
+  width: 50%;
+  min-height: 50px;
+  text-align: center;
+  display: inline-flex;
+  margin: 10px;
+  padding: 20px;
+  border-color: #88aaff;
+  border-style: solid;
+  border-radius: 20px;
+  border-left: solid 10px #2196F3;
+  border-right: solid 10px #2196F3;
+}
+
+.simulationBox {
+  width: 100%;
+  min-height: 40px;
+  text-align: center;
+  margin: 10px;
+  padding: 20px;
+  border-color: #88aaff;
+  border-style: solid;
+  border-radius: 20px;
+  border-left: solid 5px #2196F3;
+  border-right: solid 5px #2196F3;
+}
+
+#clockRange {
+  height: 12px;
+}
+
+.register {
+  margin-left: 20px;
+  margin-top: 3px;
+  padding: 5px;
+  background-color: #b9f0b3;
+  border-radius: 10px;
+  min-width: 50px;
+}
+
+.ramCell {
+  width: 50px;
+}
+
+.flag {
+  margin-left: 20px;
+  margin-top: 3px;
+  padding: 5px;
+  background-color: #ebebe4;
+  border-radius: 10px;
+  min-width: 50px;
+}
+
+.nbsp {
+  width: 5px;
+}
+
+button {
+  background-color: #4CAF5030;
+  cursor: pointer;
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  margin: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 2px solid #4CAF50;
+  transition-duration: 0.4s;
+}
+
+button:hover {
+  background-color: #4CAF50;
+  /* Green */
+  color: white;
+}
+
+button:enabled:active {
+  transition-duration: 0.05s;
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+button:disabled {
+  color: grey;
+  background-color: #4CAF5010;
+  border: 2px solid #4CAF5030;
+  +box-shadow: 0 1px #fff;
+  cursor: not-allowed;
+}
+
+.stopButton {
+  background-color: #f4433630;
+  border: 2px solid #f44336;
+}
+
+.stopButton:hover {
+  background-color: #f44336;
+}
+
+/*
+button:focus, div:focus, code:focus, input:focus {
+  outline: none;
+}*/
+* {
+  outline: none;
+}
+object, embed {
+  outline: none;
+}
+input::-moz-focus-inner {
+  border: none;
+  outline: none;
+}
+
+.keyword {
+  color: orange;
+}
+
+.number {
+  color: #00f;
+}
+
+.lineNumber {
+  width: 30px;
+  background-color: #c6c6c6;
+  color: #000;
+  font-size: 20px;
+}
+
+.lineNumberText{
+  color: black;
+}
+
+.textarea {
+  width: 100%;
+  height: 100%;
+  border: none;
+}

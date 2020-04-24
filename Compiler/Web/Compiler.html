@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Compiler</title>
+</head>
+
+<body>
+
+  <link rel="stylesheet" href="style.css">
+
+  <div>
+    Color code <input id="textColor" type="checkbox">
+    &nbsp;
+    End for bootloader <input id="endBootloader" type="checkbox" checked>
+  </div>
+
+  <div style="text-align: center; display: inline-flex; width: 100%;">
+    <div class="blockContainer">
+      <div id="assemblyLines" class="lineNumber"></div>
+      <code id="assemblyDiv" class="codeContainer" contenteditable="true" style="text-transform:uppercase;">Inserisci qui il tuo programma...</code>
+    </div>
+    <div class="blockContainer">
+      <code id="binaryDiv" class="codeContainer" contenteditable="true">Qui verrà visualizzato in linguaggio macchina...</code>
+    </div>
+  </div>
+  <br>
+  <div style="text-align: center; display: inline-flex; width: 100%;">
+    <div class="blockContainer" style="width: 100%; min-height: 80px;">
+      <code id="hexDiv" class="codeContainer" style="width: 100%; min-height: 70px;" contenteditable="true">E qui in linguaggio macchina, ma in esadecimale e formattato per logisim...</code>
+    </div>
+  </div>
+  <br>
+  <div style="text-align: center; display: inline-flex; width: 100%;">
+    <div class="simulationBox" style="display: block;">
+      Clock &nbsp;
+      <button style="padding: 1px 5px;" onclick="changeClock(-1)"><b>-</b></button>
+      <input id="clockRange" type="range" value="20" min="1" max="1000">
+      <button style="padding: 1px 2px;" onclick="changeClock(1)"><b>+</b></button>
+      &nbsp; <span id="clockFreqSpan"></span> &nbsp; Hz
+      <button id="startStop" onclick="startStop()" style="width: 130px;">START</button>
+      <button id="tickClock" onclick="exec(true)">CLOCK</button>
+      <button onclick="resetAll()">RESET</button>
+      <br>
+      <div style="display: inline-flex; padding: 10px;">
+        <div id="divA" class="register">
+          A: &nbsp; <span id="regA">00000000 (000)</span>
+        </div>
+        <div id="divB" class="register">
+          B: &nbsp; <span id="regB">00000000 (000)</span>
+        </div>
+        <div id="divPC" class="register">
+          PC: &nbsp; <span id="regPC">00000000 (000)</span>
+        </div>
+        <div id="divIST" class="register">
+          ISTRUCTION: &nbsp; <span id="regIST">00000000 (000)</span>
+        </div>
+      </div>
+      <br>
+      <div style="display: inline-flex; padding: 10px;">
+        <div id="divSTEP" class="register">
+          STEP: &nbsp; <span id="regSTEP">000 (0)</span>
+        </div>
+        <div id="divPAR" class="register">
+          PARAMETER: &nbsp; <span id="regPAR">00000000 (000)</span>
+        </div>
+        <div id="divADDR" class="register">
+          RAM ADDR: &nbsp; <span id="regADDR">00000000 (000)</span>
+        </div>
+        <div id="divOUT" class="register">
+          OUT: &nbsp; <span id="regOUT">00000000 (000)</span>
+        </div>
+      </div>
+      <br>
+      <div style="display: inline-flex; padding: 10px;">
+        <div class="register">
+          <span id="clockCounter">0</span>
+        </div>
+        <div id="zeroFlag" class="flag">
+          <b>Z</b>
+        </div>
+        <div id="carryFlag" class="flag">
+          <b>C</b>
+        </div>
+      </div>
+
+      <br>
+      <div style="text-align: center; display: inline-flex">
+        <table id="highRamTable" border="1" style="border-collapse: collapse; margin: 30px;"></table>
+        <br>
+        <table id="lowRamTable" border="1" style="border-collapse: collapse; margin: 30px;"></table>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="main.js"></script>
+  <script src="simulation.js"></script>
+  <script src="codeColor.js"></script>
+
+</body>
+
+</html>

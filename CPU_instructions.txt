@@ -1,0 +1,9 @@
+LA  OA   LB  MI OUT  SO SDIFF   RE         RO  IL  IO  CE  CL  CO  ///  HLT
+
+mnemonic	bin byte	time(0-111)		control
+
+FETCH*		xxxx xxxx	000				0001 0000  0000 0100							Output counter to ram
+FETCH*		xxxx xxxx	001				0000 0001  1101 0000							Ouput ram and advance clock
+
+NOP			0000 0000	010				0000
+LDA			
