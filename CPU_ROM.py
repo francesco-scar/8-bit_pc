@@ -17,8 +17,8 @@ FI  = 0b0000000000000010				# LOAD FLAGS INTO FLAG REGISTER
 HLT = 0b0000000000000001				# STOP CLOCK SIGNALS (AUTOKILL)
 
 
-high_ROM = open("/home/test_reti/Desktop/Projects/8-bit_pc/CPU_ROM_high", "w")
-low_ROM = open("/home/test_reti/Desktop/Projects/8-bit_pc/CPU_ROM_low", "w")
+high_ROM = open("CPU_ROM_high", "w")
+low_ROM = open("CPU_ROM_low", "w")
 
 result_high = "v2.0 raw\n"
 result_low = "v2.0 raw\n"
@@ -28,7 +28,7 @@ address = 0
 
 nop = [MI|CO,	RE|RO|II|CE,	0,				0,				0,			0,	0,	0 ]
 
-FORMAT = [ 
+FORMAT = [
 		[MI|CO,	RE|RO|II|CE,	0,				0,				0,			0,	0,	0 ],		# NOP  - Do nothing
 		[MI|CO,	RE|RO|II|CE,	IO|AI,			0,				0,			0,	0,	0 ],		# LDIA - Load immediate to A
 		[MI|CO,	RE|RO|II|CE,	IO|BI,			0,				0,			0,	0,	0 ],		# LDIB - Load immediate to B
