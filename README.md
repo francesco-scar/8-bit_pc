@@ -27,6 +27,10 @@ To run code on the machine you need to write machine code (binary/hexadecimal) i
 - [Simulator](#simulator)
 
 ## General description
+![Computer Logisim Simulation](Images/image_color.png?raw=true)
+The computer is a simple 8-bit bus calculator, it can store a program in ROM that will be copied into RAM at startup. Then the code will be executed and the result will be shown on the display.
+At the moment the computer doesn't have any input (in a normal use case, without manipulating internal state and signals), so it can only execute numerical operations and show the results.
+
 ## Components
 ### Clock
 ### Register A
