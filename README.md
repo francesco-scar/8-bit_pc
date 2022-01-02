@@ -44,6 +44,18 @@ The main clock is generated from this Logisim clock block. The signal enter in a
 The display decoder has a separate clock, that the computer can't stop. In the real computer the two clocks would be completely independent from each other, but in Logisim this clock is actually in sync with the main clock. The display decoder design is explained in the [display](#output---display-decoder) section.
 
 ### Register A
+![Register A](Images/Register_A.png?raw=true)
+
+The computer has two registers (A and B). Register A is the main register of the computer: it is directly connected with the [ALU](#arithmetic-logic-unit---alu), and to the main bus with controlled buffers (activated by the CU during normal use).
+
+The register can output its value to the main bus, so the data can be used by other units, for example:
+- Display buffer
+- RAM
+- Register B
+- (Register A itself)
+
+The input of the register is directly connected to the main bus, so it can load the value on the bus on the clock rising edge if and only if the LOAD signal is HIGH, so data from the other register, RAM or ALU can be stored in this register.
+
 ### Register B
 ### Arithmetic Logic Unit - ALU
 ### Random Access Memory - RAM
