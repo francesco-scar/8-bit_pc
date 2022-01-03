@@ -57,6 +57,14 @@ The register can output its value to the main bus, so the data can be used by ot
 The input of the register is directly connected to the main bus, so it can load the value on the bus on the clock rising edge if and only if the LOAD signal is HIGH, so data from the other register, RAM or ALU can be stored in this register.
 
 ### Register B
+![Register B](Images/Register_B.png?raw=true)
+
+Register B is a register of the computer: it's similar to the A register, but it's directly connected with the [ALU](#arithmetic-logic-unit---alu) and can't output its value to the main bus, so the data can't be used by other units except for the [ALU](#arithmetic-logic-unit---alu).
+
+The input of the register is directly connected to the main bus, so it can load the value on the bus on the clock rising edge if and only if the LOAD signal is HIGH, so data from the other register, RAM or ALU can be stored in this register.
+
+This register is essential to perform arithmetic operations, because to add or subtract two numbers its needed to load one number in register A and the other number in register B.
+
 ### Arithmetic Logic Unit - ALU
 ### Random Access Memory - RAM
 ### Boot Loader
