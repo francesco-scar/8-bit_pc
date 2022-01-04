@@ -69,9 +69,11 @@ This register is essential to perform arithmetic operations, because to add or s
 The ALU is the unit that performs arithmetic operations: in particular this unit can sum or subtract two 8 bit numbers.
 
 ![Single Adder Unit](Images/ALU_unit.png?raw=true)
+
 The unit is composed of 8 adders that are able to sum three 1-bit numbers and output a 1-bit result and a 1-bit carry.
 
 ![Single Adder Unit](Images/ALU_general.png?raw=true)
+
 The units are connected in cascade, so the _i-th_ unit sums the _i-th_ bit of A register, the _i-th_ bit of B register and the carry of the previous unit. The carry input of first unit is connected to the DIFF signal to subtract B from A, as explained below.
 
 To perform the subtraction A-B is sufficient to add A+(-B), where A and B are represented in two's complement.
