@@ -66,6 +66,21 @@ The input of the register is directly connected to the main bus, so it can load 
 This register is essential to perform arithmetic operations, because to add or subtract two numbers its needed to load one number in register A and the other number in register B.
 
 ## Arithmetic Logic Unit - ALU
+The ALU is the unit that performs arithmetic operations: in particular this unit can sum or subtract two 8 bit numbers.
+
+![Single Adder Unit](Images/ALU_unit.png?raw=true)
+The unit is composed of 8 adders that are able to sum three 1-bit numbers and output a 1-bit result and a 1-bit carry.
+
+![Single Adder Unit](Images/ALU_general.png?raw=true)
+The units are connected in cascade, so the _i-th_ unit sums the _i-th_ bit of A register, the _i-th_ bit of B register and the carry of the previous unit. The carry input of first unit is connected to the DIFF signal to subtract B from A, as explained below.
+
+To perform the subtraction A-B is sufficient to add A+(-B), where A and B are represented in two's complement.
+The two's complement of a binary number can be calculated flipping each bit and then adding one; so if the DIFF signal is HIGH the XOR gates flip each bit (XORs act as controlled NOT gates) and then 1 is added as the "carry input" of the first adder unit (that input is actually connected to the DIFF signal so it's 1 when DIFF is HIGH and 0 when it is LOW). If the DIFF signal is LOW the unit act as a normal adder.
+
+The result of the operation output can be shared on the main bun and therefore it can be stored in registers or used from other units (current [instruction set](#instructions-list) allow to store the result only in A register, but it can be expanded to include other uses).
+
+The carry of the last adder unit and the result of the operation are used from the [flags](#flags) register.
+
 ## Random Access Memory - RAM
 ## Boot Loader
 ## Flags
