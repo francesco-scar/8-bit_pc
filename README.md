@@ -81,7 +81,7 @@ The two's complement of a binary number can be calculated flipping each bit and 
 
 The result of the operation output can be shared on the main bun and therefore it can be stored in registers or used from other units (current [instruction set](#instructions-list) allow to store the result only in A register, but it can be expanded to include other uses).
 
-The carry of the last adder unit and the result of the operation are used from the [flags](#flags) register.
+The carry of the last adder unit and the result of the operation are used by the [flags](#flags) register.
 
 ## Random Access Memory - RAM
 ## Boot Loader
