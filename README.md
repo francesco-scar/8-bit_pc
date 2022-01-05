@@ -84,6 +84,20 @@ The result of the operation output can be shared on the main bun and therefore i
 The carry of the last adder unit and the result of the operation are used by the [flags](#flags) register.
 
 ## Random Access Memory - RAM
+![RAM](Images/RAM.png?raw=true)
+
+The computer execute the code loaded in RAM starting from address 0 (zero). The RAM unit is made of two 256 byte RAM modules, one contain the instructions opcodes (HIGH RAM), and the other one contains the parameters of the instruction (LOW RAM).
+
+During the first step of each instruction the RAM address buffer gets loaded with the current program counter value (using the main bus).
+
+During the second step of each instruction the RAM cell corresponding to the current RAM address buffer value gets loaded into the Instruction Register and the Parameter Register.
+
+![Instruction and Parameter Registers](Instruction_registers/RAM.png?raw=true)
+
+The instruction register value is then used by the [Control Unit - CU](#control-unit---cu) to perform the operations corresponding to that opcode, whereas the parameter register value can be shared with other units (if needed) using the main bus.
+
+HIGH RAM content (instructions opcodes) can't be shared on main bus, its output is connected only with the instruction register used by the [Control Unit - CU](#control-unit---cu).
+
 ## Boot Loader
 ## Flags
 ### Zero Flag
