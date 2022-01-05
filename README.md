@@ -102,7 +102,7 @@ During the first step of each instruction the RAM address buffer gets loaded wit
 
 During the second step of each instruction the RAM cell corresponding to the current RAM address buffer value gets loaded into the Instruction Register and the Parameter Register.
 
-![Instruction and Parameter Registers](Instruction_registers/RAM.png?raw=true)
+![Instruction and Parameter Registers](Images/Instruction_registers.png?raw=true)
 
 The instruction register value is then used by the [Control Unit - CU](#control-unit---cu) to perform the operations corresponding to that opcode, whereas the parameter register value can be shared with other units (if needed) using the main bus.
 
