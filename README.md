@@ -10,6 +10,7 @@ To run code on the machine you need to write machine code (binary/hexadecimal) i
   - [Register A](#register-a)
   - [Register B](#register-b)
   - [Arithmetic Logic Unit - ALU](#arithmetic-logic-unit---alu)
+  - [Program Counter](#program-counter)
   - [Random Access Memory - RAM](#random-access-memory---ram)
   - [Boot Loader](#boot-loader)
   - [Flags](#flags)
@@ -82,6 +83,15 @@ The two's complement of a binary number can be calculated flipping each bit and 
 The result of the operation output can be shared on the main bun and therefore it can be stored in registers or used from other units (current [instruction set](#instructions-list) allow to store the result only in A register, but it can be expanded to include other uses).
 
 The carry of the last adder unit and the result of the operation are used by the [flags](#flags) register.
+
+## Program Counter
+![Program Counter](Images/Program_counter.png?raw=true)
+
+The program counter is a D-Flip-Flop that stores the current program instruction address.
+
+It gets incremented by 1 during the second step of every instruction, and its value gets shared on the main bus during the first step of any instruction to allow the [RAM](#random-access-memory---ram) address register to store the address of the opcode that will be executed in the next cycles.
+
+The jump and conditional jumps instructions change the value of this counter to the appropriate address to control the execution flow.
 
 ## Random Access Memory - RAM
 ![RAM](Images/RAM.png?raw=true)
