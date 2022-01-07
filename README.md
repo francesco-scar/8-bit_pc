@@ -109,6 +109,19 @@ The instruction register value is then used by the [Control Unit - CU](#control-
 HIGH RAM content (instructions opcodes) can't be shared on main bus, its output is connected only with the instruction register used by the [Control Unit - CU](#control-unit---cu).
 
 ## Boot Loader
+![Boot Loader](Images/Bootloader.png?raw=true)
+
+The code need to be loaded in RAM to be executed, but manually load the program every time the computer gets powered on is quite boring. So the executable machine code can be stored in a persistent memory (ROM) and automatically loaded into RAM at startup.
+
+This process is done by the bootloader circuit.
+
+The unit is active until the output of the OR gate is HIGH, so the counter increment its value every cycle of the JK flip-flop, so every 2 cycles of the main clock.
+For each counter value the corresponding address is stored into the RAM address buffer and, during the next clock cycle, the value of the ROM gets copied into the RAM. This two phases are regulated by the JK flip-flop, because its output controls the control lines of the [CU](#control-unit---cu).
+
+To be able to manually control the computer internal signals the Manual Control signal is kept HIGH by the OR output.
+
+When a ROM cell with 0xff value gets reached the comparator switches to LOW, so when the flip-flop output gets LOW too (at the end of the current cycle) the enable signal of the counter gets LOW and the Manual Control signal gets LOW as well, therefore the computer will start executing the loaded code from address 0x00 on the next clock cycle.
+
 ## Flags
 ### Zero Flag
 ### Carry Flag
