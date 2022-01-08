@@ -123,6 +123,10 @@ To be able to manually control the computer internal signals the Manual Control 
 When a ROM cell with 0xff value gets reached the comparator switches to LOW, so when the flip-flop output gets LOW too (at the end of the current cycle) the enable signal of the counter gets LOW and the Manual Control signal gets LOW as well, therefore the computer will start executing the loaded code from address 0x00 on the next clock cycle.
 
 ## Flags
+![Flags](Images/Flags.png?raw=true)
+
+The [CU](#control-unit---cu) operations are determined by the combination of the current loaded instruction opcode and the latched status of the Flag Register, so the same instruction might produce different behavior of the CU with different flag status (this trick is mostly used for conditional jump instructions).
+
 ### Zero Flag
 ### Carry Flag
 ## Control Unit - CU
