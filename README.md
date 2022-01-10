@@ -135,6 +135,14 @@ This flag can be used to compare two numbers: if you need to compare an unknown 
 The Flags register latches synchronously the zero signal if enabled by the [CU](#control-unit---cu); currently the register latches the value after arithmetic operations such as sums and subtractions.
 
 ### Carry Flag
+The carry signal gets HIGH if and only if the carry bit of the last [ALU](#arithmetic-logic-unit---alu) unit is HIGH.
+
+This happens when the sum of two numbers (stored in A and B registers) generates an overflow (the result can't be represented with 8 bit because it's greater then (2^8)-1) or if the difference of two numbers (A-B registers value) is a **positive** or **null number** number (so if A >= B).
+
+This flag can be used to compare two numbers: if you need to compare an unknown number A with a known number B, you can subtract B from A, then you can check the carry flag, if it's HIGH then A >= B.
+
+The Flags register latches synchronously the carry signal if enabled by the [CU](#control-unit---cu); currently the register latches the value after arithmetic operations such as sums and subtractions.
+
 ## Control Unit - CU
 ## Output - Display Decoder
 ## Components statistics
