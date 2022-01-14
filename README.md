@@ -144,6 +144,23 @@ This flag can be used to compare two numbers: if you need to compare an unknown 
 The Flags register latches synchronously the carry signal if enabled by the [CU](#control-unit---cu); currently the register latches the value after arithmetic operations such as sums and subtractions.
 
 ## Control Unit - CU
+![Control Unit](Images/Control_unit.png)
+
+The control unit controls the signals of every other unit of the computer.
+
+For example to add immediately a value to the A register the CU needs two steps (in addition to the two default steps needed for every instruction).
+
+In the first step:
+- sets the Parameter Instruction register Output signal HIGH
+- sets the B register Input signal HIGH
+So the parameter will be loaded into B register through the main bus
+
+In the second step:
+- sets the [ALU](#arithmetic-logic-unit---alu) output signal HIGH
+- sets the A register Input signal HIGH
+- sets the Flag Register Input signal HIGH
+So the output of the addition get stored in the A register through the main bus and the status of the flags gets latched into the Flag Status Register
+
 ## Output - Display Decoder
 ## Components statistics
 # Machine code instructions
