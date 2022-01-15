@@ -148,6 +148,21 @@ The Flags register latches synchronously the carry signal if enabled by the [CU]
 
 The control unit controls the signals of every other unit of the computer.
 
+The Control Unit is made with a ROM memory that emulates a combinatorial circuit (to each input (address input) correspond a pre-programmed output (data output)), but it's easier to create and modify if needed. The computer has 16 control signals, so 2 8-bit output ROM are needed.
+
+The ROM image is produced by the [CPU_ROM.py](CPU_ROM.py) program.
+
+The address determine the operation that the CU will execute, in particular to each address correspond a specific state for each control signal, based on the data stored in the ROM cell.
+
+The memory data is stored in such a way that the address bits have the following semantic meaning:
+| bits number/range | Related to |
+|:-----------------:|------------|
+| 10                | Zero Flag  |
+| 9                 | Carry Flag |
+| 3 - 8             | Opcode     |
+| 2 - 0             | Step Number|
+
+
 For example to add immediately a value to the A register the CU needs two steps (in addition to the two default steps needed for every instruction).
 
 In the first step:
