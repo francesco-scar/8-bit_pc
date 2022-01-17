@@ -17,6 +17,8 @@ To run code on the machine you need to write machine code (binary/hexadecimal) i
     - [Zero Flag](#zero-flag)
     - [Carry Flag](#carry-flag)
   - [Control Unit - CU](#control-unit---cu)
+    - [Input Data](#input-data)
+    - [Output Data](#output-data)
   - [Output - Display Decoder](#output---display-decoder)
   - [Components statistics](#components-statistics)
 - [Machine code instructions](#machine-code-instructions)
@@ -154,13 +156,42 @@ The ROM image is produced by the [CPU_ROM.py](CPU_ROM.py) program.
 
 The address determine the operation that the CU will execute, in particular to each address correspond a specific state for each control signal, based on the data stored in the ROM cell.
 
+**NOTE**: the CU changes the control signals during the falling edge of the clock, whereas the units load or output, or any operation in general, occur during the rising edge of the clock, this avoid propagation problems and race conditions.
+
+### Input Data
 The memory data is stored in such a way that the address bits have the following semantic meaning:
-| bits number/range | Related to |
+| Bits number/range | Related to |
 |:-----------------:|------------|
 | 10                | Zero Flag  |
 | 9                 | Carry Flag |
 | 3 - 8             | Opcode     |
-| 2 - 0             | Step Number|
+| 0 - 2             | Step Number|
+
+This division can be noticed in the image above: the lower 3 bits are taken from the step counter, the middle 6 bits are connected to the output of the instruction register (only the HIGH byte, where the opcode is stored) and the upper 2 bits are connected to the flag register.
+
+##### Zero Flag bit
+Most of the operations aren't influenced by the status of this bit, except for the JZF (Jump if Zero Flag) that execute a NOP instruction if the Zero Flag is 0 and execute a JMP (Jump) instruction if it's 1.
+
+##### Carry Flag bit
+Most of the operations aren't influenced by the status of this bit, except for the JCF (Jump if Carry Flag) that execute a NOP instruction if the Carry Flag is 0 and execute a JMP (Jump) instruction if it's 1.
+
+##### Opcode
+The binary value of the opcode that represent the desired instruction. This argument is discussed in detail in the [Machine code instructions](#machine-code-instructions) section.
+
+##### Step Number
+Each instruction has several consecutive steps.
+The first two steps of each instruction are needed to allow the proper execution of the code.
+
+During the first step:
+- the program counter outputs its value to the main bus
+- the RAM address register loads the main bus value
+
+During the second step:
+- 
+
+### Output Data
+
+
 
 
 For example to add immediately a value to the A register the CU needs two steps (in addition to the two default steps needed for every instruction).
