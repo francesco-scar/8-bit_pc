@@ -187,7 +187,10 @@ During the first step:
 - the RAM address register loads the main bus value
 
 During the second step:
-- 
+- the RAM gets enables
+- the RAM outputs on the bus the value stored in the address specified by the RAM address register
+- the instruction registers latch the bus value
+- the program counter increments its value by one (so on the next first step the CU will execute the consecutive instruction, if the program doesn't change the flow with a jump)
 
 ### Output Data
 
