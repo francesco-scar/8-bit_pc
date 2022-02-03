@@ -194,8 +194,11 @@ During the second step:
 
 ### Output Data
 
+The bit corresponding to each signal can be found in the [CPU_ROM.py](CPU_ROM.py) program.
 
+```python:CPU_ROM.py [1-17]
 
+```
 
 For example to add immediately a value to the A register the CU needs two steps (in addition to the two default steps needed for every instruction).
 
