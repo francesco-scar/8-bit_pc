@@ -197,9 +197,8 @@ During the second step:
 The bit corresponding to each signal can be found in the [CPU_ROM.py](CPU_ROM.py) program.
 
 ```py
-
 AI  = 0b1000000000000000				# LOAD BUS IN A REGISTER
-AO  = 0b0100000000000000				# OUTPUT A REGISETER TO BUS
+AO  = 0b0100000000000000				# OUTPUT A REGISTER TO BUS
 BI  = 0b0010000000000000				# LOAD BUS IN B REGISTER
 MI  = 0b0001000000000000				# LOAD BUS IN RAM ADDRESS REGISTER
 OUT = 0b0000100000000000				# LOAD BUS IN DISPLAY DECODER REGISTER
@@ -232,6 +231,16 @@ In the second step:
 So the output of the addition get stored in the A register through the main bus and the status of the flags gets latched into the Flag Status Register
 
 ## Output - Display Decoder
+![Display Decoder](images/Display_decoder.png)
+
+The output of the calculator is a 4-digit 7-segment display. It's made out of 4 single-digit 7-segment display.
+
+The single units are activated by a 2-bit counter (so a modulo 4 counter) with an independent clock and a decoder, that enables the buffers of the corresponding unit. The actual conversion from binary to 7-segment signals corresponding to the right decimal digit can be made with a combinatorial circuit (with simple logic gates), but for simplicity a ROM that emulates the logic circuit was used (the [ROM content](7Segment_ROM) is generated automatically with [this](7Segment_ROM.py) python script).
+
+The ROM takes as input the value buffered into the output register and the 2-bit status of the counter, indicating which digit has been activated.
+
+For better readability I also added another 3 digit display, using Logisim logic and components (to avoid flickering problems in the simulation).
+
 ## Components statistics
 # Machine code instructions
 ## Instructions format and arguments
