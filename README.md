@@ -242,6 +242,9 @@ The ROM takes as input the value buffered into the output register and the 2-bit
 For better readability I also added another 3 digit display, using Logisim logic and components (to avoid flickering problems in the simulation).
 
 ## Components statistics
+
+![Circuit statistics](Images/Circuit_statistics.png)
+
 # Machine code instructions
 ## Instructions format and arguments
 ## Instructions list
